@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>JOJO 的奇妙冒险 · 全六部 190 话打卡</title>
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon-180.png">
+<link rel="manifest" href="manifest.json">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#14101A;--ink:#F2EDDA;--dim:#9B92A8}
+html{font-size:16px}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Serif SC",Georgia,"Songti SC",serif;
+ min-height:100vh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+ background:
+  radial-gradient(ellipse 80% 50% at 20% -10%,rgba(91,75,138,.16),transparent),
+  radial-gradient(ellipse 60% 40% at 100% 20%,rgba(194,126,158,.08),transparent)}
+.onsei{position:fixed;z-index:0;pointer-events:none;font-weight:900;color:rgba(242,237,218,.05);
+ letter-spacing:.3em;white-space:nowrap;transform-origin:center}
+.o1{top:6%;left:-4%;font-size:64px;transform:rotate(-12deg)}
+.o2{top:40%;right:-6%;font-size:52px;transform:rotate(8deg)}
+.o3{bottom:12%;left:8%;font-size:44px;transform:rotate(-4deg)}
+.o4{bottom:34%;right:20%;font-size:38px;transform:rotate(14deg)}
+.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:28px 18px 90px}
+header{text-align:center;margin-bottom:8px}
+.star{display:inline-block;width:44px;height:44px;margin-bottom:10px}
+h1{font-size:30px;letter-spacing:.12em;font-weight:900;color:var(--ink)}
+h1 .en{display:block;font-family:Georgia,serif;font-style:italic;font-size:13px;
+ color:var(--dim);letter-spacing:.28em;margin-top:8px;font-weight:400}
+.rule{height:1px;background:linear-gradient(90deg,transparent,rgba(242,237,218,.3),transparent);margin:18px 0}
+.tag{font-size:12px;color:var(--dim);letter-spacing:.2em}
+.totalbar{margin:22px 0 4px;text-align:center;font-size:14px;letter-spacing:.1em}
+.totalbar b{font-size:22px;color:var(--ink)}
+.totalbar .sub{color:var(--dim);font-size:12px;margin-top:4px}
+.ringwrap{display:flex;justify-content:center;margin:10px 0 2px}
+.ring{width:64px;height:64px}
+.part{margin:34px 0 0;border-left:4px solid var(--pc);padding-left:14px;position:relative}
+.phead{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px}
+.pn{font-family:Georgia,serif;font-style:italic;color:var(--pc);font-size:15px;letter-spacing:.14em}
+.pcn{font-size:24px;font-weight:900;letter-spacing:.06em}
+.pen{font-size:11px;color:var(--dim);letter-spacing:.16em}
+.pmeta{font-size:12px;color:var(--dim);margin-top:6px;letter-spacing:.04em;line-height:1.7}
+.pmeta b{color:var(--ink);font-weight:400}
+.pquote{font-size:13px;color:var(--pc);margin-top:8px;letter-spacing:.03em}
+.pcount{position:absolute;right:0;top:2px;font-family:Georgia,serif;font-style:italic;
+ font-size:13px;color:var(--dim)}
+.pcount b{color:var(--pc);font-size:17px}
+.pintro{font-size:12.5px;color:#B9B0C4;line-height:1.8;margin-top:10px;padding-right:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(103px,1fr));gap:8px;margin:16px 0 6px}
+.ep{position:relative;background:rgba(242,237,218,.045);border:1px solid rgba(242,237,218,.13);
+ border-radius:6px;padding:10px 8px 8px;cursor:pointer;transition:transform .15s,border-color .15s}
+.ep:active{transform:scale(.96)}
+.ep .no{font-family:Georgia,serif;font-style:italic;font-size:18px;color:var(--pc);line-height:1}
+.ep .tt{font-size:11.5px;line-height:1.42;margin-top:6px;color:var(--ink);letter-spacing:.01em;
+ display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ep.lit{background:var(--pc);border-color:var(--pc)}
+.ep.lit .no,.ep.lit .tt{color:#14101A}
+.ep.lit::after{content:"✓";position:absolute;top:6px;right:7px;font-size:12px;color:#14101A;font-weight:900}
+.ep.fin{box-shadow:0 0 0 1px var(--pc)}
+/* 细读卡 */
+#ovl{position:fixed;inset:0;background:rgba(10,8,14,.72);z-index:50;opacity:0;
+ pointer-events:none;transition:opacity .25s}
+#ovl.on{opacity:1;pointer-events:auto}
+#card{position:fixed;left:50%;bottom:0;transform:translate(-50%,105%);width:100%;max-width:560px;
+ background:#1B1624;border-top:3px solid var(--pc,#5B4B8A);border-radius:18px 18px 0 0;
+ padding:26px 22px 30px;z-index:60;transition:transform .3s cubic-bezier(.2,.9,.3,1)}
+#card.up{transform:translate(-50%,0)}
+.cno{font-family:Georgia,serif;font-style:italic;color:var(--pc);font-size:14px;letter-spacing:.18em}
+.ctt{font-size:23px;font-weight:900;margin:10px 0 4px;line-height:1.3;letter-spacing:.02em}
+.cmeta{font-size:12px;color:var(--dim);margin-bottom:4px}
+.chero{font-size:13px;color:var(--ink);margin-top:12px;letter-spacing:.05em}
+.chero span{color:var(--dim)}
+.cdesc{font-size:13.5px;color:#C6BDDB;line-height:1.85;margin-top:12px;padding-top:12px;
+ border-top:1px solid rgba(242,237,218,.12)}
+.btns{display:flex;gap:10px;margin-top:20px}
+.bk{flex:1;border:0;border-radius:10px;padding:15px 0;font-size:15px;letter-spacing:.14em;
+ font-family:inherit;cursor:pointer;font-weight:700}
+#bclose{background:rgba(242,237,218,.08);color:var(--ink)}
+#bdone{background:var(--pc);color:#14101A}
+/* 章徽 */
+#badge{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;
+ background:rgba(10,8,14,.88)}
+#badge.on{display:flex}
+.bin{text-align:center;padding:30px}
+.bin .st{font-size:64px;color:var(--ink);text-shadow:0 0 40px rgba(242,237,218,.6)}
+.bin h2{font-size:26px;margin:16px 0 6px;letter-spacing:.2em;color:var(--ink);font-weight:900}
+.bin .en2{font-family:Georgia,serif;font-style:italic;color:var(--dim);letter-spacing:.24em;font-size:13px}
+.bin p{margin-top:20px;font-size:14px;color:#C6BDDB;line-height:2}
+footer{margin-top:56px;text-align:center;font-size:11px;color:#6E6580;letter-spacing:.14em;line-height:2}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);
+ background:rgba(242,237,218,.96);color:#14101A;font-size:13px;letter-spacing:.06em;
+ padding:10px 18px;border-radius:20px;z-index:95;opacity:0;transition:all .3s;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="onsei o1">ゴゴゴゴゴ</div>
+<div class="onsei o2">ドドドドド</div>
+<div class="onsei o3">ズキュゥゥゥン</div>
+<div class="onsei o4">オラオラオラ</div>
+<div class="wrap">
+ <header>
+  <svg class="star" viewBox="0 0 44 44"><path d="M22 3l4.4 12.6L40 15l-8.6 9.2L34.5 38 22 31.4 9.5 38l3.1-13.8L4 15l13.6.6z" fill="none" stroke="#F2EDDA" stroke-width="1.6"/><circle cx="22" cy="21" r="2.4" fill="#F2EDDA"/></svg>
+  <h1>JOJO 的奇妙冒险<span class="en">JOJO'S BIZARRE ADVENTURE — ALL 6 PARTS</span></h1>
+ </header>
+ <div class="rule"></div>
+ <div class="tag" style="text-align:center">全六部动画 · 190 话逐话打卡 · 看一话点一话</div>
+ <div class="totalbar"><b id="tdone">0</b> <span style="color:var(--dim)">/ 190 话</span>
+  <div class="sub" id="tpct">石鬼面的百年物语，从第一话点亮</div></div>
+ <div id="parts"></div>
+ <footer>零预置 · 自由顺序 · 本地保存<br>集名与播出信息为公开播映数据 · P1–P5 无官方分集梗概故不标注</footer>
+</div>
+<div id="ovl"></div>
+<div id="card">
+ <div class="cno" id="cno"></div>
+ <div class="ctt" id="ctt"></div>
+ <div class="cmeta" id="cmeta"></div>
+ <div class="chero" id="chero"></div>
+ <div class="cdesc" id="cdesc"></div>
+ <div class="btns"><button class="bk" id="bclose">还没看</button>
+  <button class="bk" id="bdone">看完点亮 ✓</button></div>
+</div>
+<div id="badge"><div class="bin">
+ <div class="st">★</div>
+ <h2>黄 金 精 神</h2>
+ <div class="en2">THE GOLDEN SPIRIT · ALL 190 EPISODES</div>
+ <p>「人类的赞歌，就是勇气与希望的赞歌！」<br>——威廉·A·齐贝林</p>
+ <button class="bk" style="background:#F2EDDA;color:#14101A;margin-top:22px;padding:12px 40px;flex:0" onclick="document.getElementById('badge').classList.remove('on')">闭上眼睛回味</button>
+</div></div>
+<div class="toast" id="toast"></div>
+<script>
+const DATA=[{"id": "p1", "cn": "幻影之血", "en": "Phantom Blood", "year": "2012", "color": "#A2373F", "hero": "乔纳森·乔斯达", "stand": "波纹呼吸", "quote": "「这是最后的波纹了！收下吧，齐贝林老师的波纹！」", "intro": "19 世纪末的英国。绅士乔纳森·乔斯达与野心家迪奥·布兰度以兄弟之名相遇——石鬼面之下的百年恩怨，从这一夜开始。", "eps": [{"n": "1", "t": "侵略者迪奥", "d": "2012-10-06"}, {"n": "2", "t": "来自过去的信", "d": "2012-10-13"}, {"n": "3", "t": "与迪奥的青春", "d": "2012-10-20"}, {"n": "4", "t": "波纹疾走", "d": "2012-10-27"}, {"n": "5", "t": "黑骑士们", "d": "2012-11-03"}, {"n": "6", "t": "明日的勇气", "d": "2012-11-10"}, {"n": "7", "t": "悲伤的继承者", "d": "2012-11-17"}, {"n": "8", "t": "血战！乔乔与迪奥", "d": "2012-11-24"}, {"n": "9", "t": "最后的波纹！", "d": "2012-12-01"}]}, {"id": "p2", "cn": "战斗潮流", "en": "Battle Tendency", "year": "2012–13", "color": "#4A7C59", "hero": "乔瑟夫·乔斯达", "stand": "波纹 · 智斗流", "quote": "「你的下一句话是——『我认输了，饶了我吧』！」", "intro": "1938 年，纽约。比起波纹更擅长嘴炮的乔瑟夫·乔斯达，迎击从远古苏醒的柱之男——以智慧与运气生存的战斗潮流。", "eps": [{"n": "10", "t": "纽约的乔乔", "d": "2012-12-08"}, {"n": "11", "t": "游戏高手", "d": "2012-12-15"}, {"n": "12", "t": "柱之男", "d": "2012-12-22"}, {"n": "13", "t": "乔乔对决终极生物", "d": "2013-01-05"}, {"n": "14", "t": "来自远古的终极战士", "d": "2013-01-12"}, {"n": "15", "t": "英雄的资格", "d": "2013-01-19"}, {"n": "16", "t": "波纹师傅莉莎莉莎", "d": "2013-01-26"}, {"n": "17", "t": "极深的陷阱", "d": "2013-02-02"}, {"n": "18", "t": "修特罗哈姆的反击", "d": "2013-02-09"}, {"n": "19", "t": "冲向死亡悬崖", "d": "2013-02-16"}, {"n": "20", "t": "西撒孤独的年少时光", "d": "2013-02-23"}, {"n": "21", "t": "100 对 2 的讨价还价", "d": "2013-03-02"}, {"n": "22", "t": "真正的格斗者", "d": "2013-03-09"}, {"n": "23", "t": "化为风的战士", "d": "2013-03-16"}, {"n": "24", "t": "与乔乔的牵绊", "d": "2013-03-23"}, {"n": "25", "t": "超级生物的诞生", "d": "2013-03-30"}, {"n": "26", "t": "成为神的男人", "d": "2013-04-06"}]}, {"id": "p3", "cn": "星尘斗士", "en": "Stardust Crusaders", "year": "2014–15", "color": "#5B4B8A", "hero": "空条承太郎", "stand": "白金之星 Star Platinum", "quote": "「呀嘞呀嘞哒哦。」", "intro": "1987 年（动画 1989）。为救母亲，空条承太郎一行从日本出发前往埃及，五十日内讨伐复活的 DIO。替身（幽波纹）的战斗，自此展开。", "eps": [{"n": "1", "t": "恶灵缠身的男子"}, {"n": "2", "t": "谁来制裁"}, {"n": "3", "t": "DIO 的诅咒"}, {"n": "4", "t": "灰塔"}, {"n": "5", "t": "银色战车"}, {"n": "6", "t": "暗青之月"}, {"n": "7", "t": "力"}, {"n": "8", "t": "恶魔"}, {"n": "9", "t": "黄色节制"}, {"n": "10", "t": "皇帝与倒吊男 ①"}, {"n": "11", "t": "皇帝与倒吊男 ②"}, {"n": "12", "t": "女帝"}, {"n": "13", "t": "命运的车轮"}, {"n": "14", "t": "正义 ①"}, {"n": "15", "t": "正义 ②"}, {"n": "16", "t": "恋人 ①"}, {"n": "17", "t": "恋人 ②"}, {"n": "18", "t": "太阳"}, {"n": "19", "t": "死神十三 ①"}, {"n": "20", "t": "死神十三 ②"}, {"n": "21", "t": "审判 ①"}, {"n": "22", "t": "审判 ②"}, {"n": "23", "t": "女教皇 ①"}, {"n": "24", "t": "女教皇 ②"}, {"n": "25", "t": "「愚者」伊奇和「盖布神」恩多尔 ①"}, {"n": "26", "t": "「愚者」伊奇和「盖布神」恩多尔 ②"}, {"n": "27", "t": "「克努姆神」欧因哥和「托托神」波因哥"}, {"n": "28", "t": "安努比斯神 ①"}, {"n": "29", "t": "安努比斯神 ②"}, {"n": "30", "t": "「巴斯迪女神」玛莱娅 ①"}, {"n": "31", "t": "「巴斯迪女神」玛莱娅 ②"}, {"n": "32", "t": "「赛特神」阿雷西 ①"}, {"n": "33", "t": "「赛特神」阿雷西 ②"}, {"n": "34", "t": "老千达比 ①"}, {"n": "35", "t": "老千达比 ②"}, {"n": "36", "t": "荷尔・贺斯和波因哥 ①"}, {"n": "37", "t": "荷尔・贺斯和波因哥 ②"}, {"n": "38", "t": "地狱的看门人 宠物店 ①"}, {"n": "39", "t": "地狱的看门人 宠物店 ②"}, {"n": "40", "t": "电玩高手达比 ①"}, {"n": "41", "t": "电玩高手达比 ②"}, {"n": "42", "t": "亚空瘴气 瓦尼拉・艾斯 ①"}, {"n": "43", "t": "亚空瘴气 瓦尼拉・艾斯 ②"}, {"n": "44", "t": "亚空瘴气 瓦尼拉・艾斯 ③"}, {"n": "45", "t": "DIO 的世界 ①"}, {"n": "46", "t": "DIO 的世界 ②"}, {"n": "47", "t": "DIO 的世界 ③"}, {"n": "48", "t": "遥远的旅途 再见朋友"}]}, {"id": "p4", "cn": "不灭钻石", "en": "Diamond is Unbreakable", "year": "2016", "color": "#C77E9E", "hero": "东方仗助", "stand": "疯狂钻石 Crazy Diamond", "quote": "「好棒好棒！Great！」", "intro": "1999 年，日本 M 县 S 市杜王町。pompadour 发型的东方仗助与伙伴们，在日常的街区里追查潜伏的连环杀人魔——小镇推理的杰作。", "eps": [{"n": "1", "t": "空条承太郎！遇见东方仗助"}, {"n": "2", "t": "东方仗助！遇见安杰罗"}, {"n": "3", "t": "虹村兄弟 ①"}, {"n": "4", "t": "虹村兄弟 ②"}, {"n": "5", "t": "虹村兄弟 ③"}, {"n": "6", "t": "广濑康一（回声）"}, {"n": "7", "t": "间田敏和（表面）"}, {"n": "8", "t": "山岸由花子谈恋爱 ①"}, {"n": "9", "t": "山岸由花子谈恋爱 ②"}, {"n": "10", "t": "去吃意大利菜吧"}, {"n": "11", "t": "辛红辣椒 ①"}, {"n": "12", "t": "辛红辣椒 ②"}, {"n": "13", "t": "捡到了危险之物！"}, {"n": "14", "t": "去漫画家的家里玩吧 ①"}, {"n": "15", "t": "去漫画家的家里玩吧 ②"}, {"n": "16", "t": "去打猎吧！"}, {"n": "17", "t": "岸边露伴的冒险"}, {"n": "18", "t": "胖重的收获（钱宝宝）①"}, {"n": "19", "t": "胖重的收获（钱宝宝）②"}, {"n": "20", "t": "山岸由花子向往灰姑娘"}, {"n": "21", "t": "吉良吉影想要平静地生活 ①"}, {"n": "22", "t": "吉良吉影想要平静地生活 ②"}, {"n": "23", "t": "穿心攻击 ①"}, {"n": "24", "t": "穿心攻击 ②"}, {"n": "25", "t": "原子心之父"}, {"n": "26", "t": "猜拳小子来了！"}, {"n": "27", "t": "我是外星人"}, {"n": "28", "t": "公路之星 ①"}, {"n": "29", "t": "公路之星 ②"}, {"n": "30", "t": "猫喜欢吉良吉影"}, {"n": "31", "t": "7 月 15 日（周四）①"}, {"n": "32", "t": "7 月 15 日（周四）②"}, {"n": "33", "t": "7 月 15 日（周四）③"}, {"n": "34", "t": "7 月 15 日（周四）④"}, {"n": "35", "t": "败者食尘 ①"}, {"n": "36", "t": "败者食尘 ②"}, {"n": "37", "t": "疯狂钻石不会破碎 ①"}, {"n": "38", "t": "疯狂钻石不会破碎 ②"}, {"n": "39", "t": "再见杜王町 黄金之心"}]}, {"id": "p5", "cn": "黄金之风", "en": "Golden Wind", "year": "2018–19", "color": "#B08A1E", "hero": "乔鲁诺·乔巴拿", "stand": "黄金体验 Gold Experience", "quote": "「我乔鲁诺·乔巴拿，有一个梦想。」", "intro": "2001 年，意大利那不勒斯。继承 DIO 之血的少年乔鲁诺潜入黑帮「热情」，立志成为「黑帮之星（Gang-Star）」——觉悟与牺牲的挽歌。", "eps": [{"n": "1", "t": "黄金体验"}, {"n": "2", "t": "布加拉提到来"}, {"n": "3", "t": "前往会见监狱中的黑帮"}, {"n": "4", "t": "黑帮入门"}, {"n": "5", "t": "目标是波尔波的遗产！"}, {"n": "6", "t": "忧郁蓝调的反击"}, {"n": "7", "t": "性感手枪登场 其一"}, {"n": "8", "t": "性感手枪登场 其二"}, {"n": "9", "t": "老板下达的第一道指令"}, {"n": "10", "t": "暗杀（Hitman）小组"}, {"n": "11", "t": "纳兰迦的航空史密斯"}, {"n": "12", "t": "老板下达的第二道指令"}, {"n": "13", "t": "镜中人与紫烟"}, {"n": "14", "t": "前往佛罗伦萨的超特快列车"}, {"n": "15", "t": "壮烈成仁（The Grateful Dead）其一"}, {"n": "16", "t": "壮烈成仁（The Grateful Dead）其二"}, {"n": "17", "t": "娃娃脸"}, {"n": "18", "t": "前往威尼斯！"}, {"n": "19", "t": "白色相簿"}, {"n": "20", "t": "老板下达的最终指令"}, {"n": "21", "t": "绯红之王的谜题"}, {"n": "22", "t": "充满干劲的「G」"}, {"n": "23", "t": "冲击与面部特写"}, {"n": "24", "t": "臭名昭著的 B・I・G"}, {"n": "25", "t": "辣妹"}, {"n": "26", "t": "不算太久以前的故事 ～我叫托比欧～"}, {"n": "27", "t": "绯红之王 vs. 金属制品"}, {"n": "28", "t": "在那看似即将坠落的天空下"}, {"n": "29", "t": "目的地是罗马！斗兽场"}, {"n": "30", "t": "青春岁月和绿洲 其一"}, {"n": "31", "t": "青春岁月和绿洲 其二"}, {"n": "32", "t": "青春岁月和绿洲 其三"}, {"n": "33", "t": "其名为迪亚波罗"}, {"n": "34", "t": "镇魂曲沉静地演奏着 其一"}, {"n": "35", "t": "镇魂曲沉静地演奏着 其二"}, {"n": "36", "t": "迪亚波罗现身"}, {"n": "37", "t": "王中之王（King of Kings）"}, {"n": "38", "t": "黄金体验镇魂曲"}, {"n": "39", "t": "沉睡的奴隶"}]}, {"id": "p6", "cn": "石之海", "en": "Stone Ocean", "year": "2021–23", "color": "#3E7C8F", "hero": "空条徐伦", "stand": "石之自由 Stone Free", "quote": "「我很快就会用自己的力量，从这里逃出去。」", "intro": "2011 年，美国佛罗里达。空条徐伦被陷害入狱绿海豚街监狱。乔斯达血脉与 DIO 残党的因果，将在宇宙尽头迎来终局——What a wonderful world.", "eps": [{"n": "1", "t": "石之海", "d": "2022-01-07", "s": "佛罗里达州，2011 年。徐伦因酒后驾车被陷害监禁，在从疏远的父亲那里收到一件奇怪的物品后，她获得了一种神秘的新力量。"}, {"n": "2", "t": "石之自由", "d": "2022-01-14", "s": "徐伦结识了绿海豚街监狱的双面狱友奎丝，奎丝获得了徐伦的挂坠盒和一个小型替身。"}, {"n": "3", "t": "会见人 其一", "d": "2022-01-21", "s": "徐伦适应了监狱，一个神秘男孩在徐伦收到她父亲和敌人的探访之前传达了一个不祥的信息。"}, {"n": "4", "t": "会见人 其二", "d": "2022-01-28", "s": "迪奥的追随者约翰格里·A 的目标是复仇。男孩冒着生命危险去帮助承太郎和徐伦，但她拒绝留下放弃男孩。"}, {"n": "5", "t": "爱的囚徒", "d": "2022-02-04", "s": "父女俩试图逃离探视室的陷阱和监狱，但敌人的替身从承太郎身上提取了两张光碟。"}, {"n": "6", "t": "艾梅斯的贴纸", "d": "2022-02-11", "s": "徐伦回到监狱取回承太郎的替身光碟。艾梅斯发现了自己的新能力。"}, {"n": "7", "t": "有六个人！", "d": "2022-02-18", "s": "人们从监狱的农场失踪后，徐伦和艾梅斯自愿加入搜索队，以寻找白蛇和光碟。"}, {"n": "8", "t": "幽浮一族", "d": "2022-02-25", "s": "徐伦和艾梅斯揭开了 F.F. 的神秘面纱，他承认帮助白蛇窃取他们的替身。"}, {"n": "9", "t": "讨债人玛丽莲·曼森", "d": "2022-03-04", "s": "白蛇的替身使用者普奇神父登场。F.F. 和石海卷入其中。"}, {"n": "10", "t": "野人花园行动（向中庭进发！）其一", "d": "2022-03-11", "s": "在安波里欧和朋友天气预报的协助下，徐伦计划冲进中庭，将承太郎的替身光碟交给史比特瓦根基金会。"}, {"n": "11", "t": "野人花园行动（向中庭进发！）其二", "d": "2022-03-18", "s": "普奇神父得知了一些行动信息。徐伦和天气预报的身体受困于闪电跳跃杰克的替身技能。"}, {"n": "12", "t": "集中暴雨警报发布", "d": "2022-03-25", "s": "徐伦到达庭院。普奇回忆起他与迪奥的谈话。徐伦在天气预报释放出毒镖蛙雨时夺回光碟。"}, {"n": "13", "t": "爱与复仇之吻 其一", "d": "2022-10-07", "s": "在发现朋友失踪后，徐伦对艾梅斯的过去进行调查。与此同时，艾梅斯调查一名神秘男子。"}, {"n": "14", "t": "爱与复仇之吻 其二", "d": "2022-10-14", "s": "在徐伦和斗魂骇客的帮助下，决心复仇的艾梅斯与史堡兹·马克思对峙，但阴魂冰兹基特的隐形攻击实在太过强大。"}, {"n": "15", "t": "严密戒备禁闭牢房", "d": "2022-10-21", "s": "为了到达严正惩罚隔离房并营救徐伦，斗魂骇客需要狱友纳鲁西索·安娜苏的帮助，而这本身就是一场冒险。"}, {"n": "16", "t": "狱警伍斯伍德的秘密", "d": "2022-10-28", "s": "古奇向隔离房释放生存者，导致到处都是暴力事件。徐伦与看守威比诺·伍斯伍德进行对战。"}, {"n": "17", "t": "燃烧吧 龙之梦", "d": "2022-11-04", "s": "徐伦怀疑地看着仍然站着的囚犯，一个名叫 KENZO 的奇怪老头向她靠近。"}, {"n": "18", "t": "燃烧吧 幽浮一族", "d": "2022-11-11", "s": "斗魂骇客在对抗 KENZO 的替身时遭到痛打，严重脱水。徐伦恳求安娜苏帮助她的朋友。"}, {"n": "19", "t": "「绿色」的诞生", "d": "2022-11-18", "s": "徐伦追赶一个带着骨头逃跑的奇怪矮小男子，当她追上后，却发现一个奇怪之物从他的身体中长了出来。"}, {"n": "20", "t": "F.F 目击者", "d": "2022-11-25", "s": "徐伦等人穿越湿地逃跑，看守对他们紧追不舍，但真正的威胁可能来自他们的船。"}, {"n": "21", "t": "觉醒", "d": "2022-12-02", "s": "安娜苏和徐伦有了一个令人不安的发现。在追捕 D&G 的过程中，斗魂骇客发现了白蛇背后的替身使者是谁。"}, {"n": "22", "t": "天堂之时！新月之时！新神父！", "d": "2022-12-09", "s": "天气预报带来的一场突如其来的降雨拯救了斗魂骇客。他们与徐伦和安娜苏碰头。"}, {"n": "23", "t": "恶魔枷锁", "d": "2022-12-16", "s": "徐伦决定做一件不可能的事：逃离绿海豚监狱。随后，一名叫缪缪的看守给她带来了白蛇的消息。"}, {"n": "24", "t": "向着越狱…", "d": "2022-12-23", "s": "由于恶魔枷锁，徐伦一次只能记住三件事，但她把一则给自己的重要提醒缝在了手上。"}, {"n": "25", "t": "波西米亚狂想曲 其一"}, {"n": "26", "t": "波西米亚狂想曲 其二"}, {"n": "27", "t": "骇飞天外"}, {"n": "28", "t": "距离天堂之时 新月之夜还有 3 天"}, {"n": "29", "t": "地下世界"}, {"n": "30", "t": "狂风骤雨 其一"}, {"n": "31", "t": "狂风骤雨 其二"}, {"n": "32", "t": "狂风骤雨 其三"}, {"n": "33", "t": "新月的重力"}, {"n": "34", "t": "新月 其一"}, {"n": "35", "t": "新月 其二"}, {"n": "36", "t": "天堂制造 其一"}, {"n": "37", "t": "天堂制造 其二"}, {"n": "38", "t": "美好新世界"}]}];
+const KEY="jojo190";
+let L=JSON.parse(localStorage.getItem(KEY)||"{}");
+let cur=-1; /* 索引 = pi*1000+n */
+function lit(pi,n){return !!L[pi*1000+n]}
+function cnt(pi){var p=DATA[pi],c=0;p.eps.forEach(function(e){if(lit(pi,+e.n))c++});return c}
+function render(){
+ var host=document.getElementById("parts");host.innerHTML="";
+ DATA.forEach(function(p,pi){
+  var d=document.createElement("section");d.className="part";d.style.setProperty("--pc",p.color);
+  d.innerHTML='<div class="phead"><span class="pn">PART '+(pi+1)+'</span><span class="pcn">'+p.cn+
+   '</span><span class="pen">'+p.en+'</span></div><div class="pcount"><b>'+cnt(pi)+'</b>/'+p.eps.length+'</div>'+
+   '<div class="pmeta"><b>'+p.hero+'</b> · 替身 <b>'+p.stand+'</b> · '+p.year+' · 全 '+p.eps.length+' 话</div>'+
+   '<div class="pquote">'+p.quote+'</div><div class="pintro">'+p.intro+'</div>';
+  var g=document.createElement("div");g.className="grid";
+  p.eps.forEach(function(e){
+   var n=+e.n,el=document.createElement("div");el.className="ep"+(lit(pi,n)?" lit":"");
+   el.innerHTML='<div class="no">'+n+'</div><div class="tt">'+e.t+'</div>';
+   el.onclick=function(){openC(pi,n)};
+   g.appendChild(el);
+  });
+  d.appendChild(g);host.appendChild(d);
+ });
+ var tot=0;DATA.forEach(function(p,pi){tot+=cnt(pi)});
+ document.getElementById("tdone").textContent=tot;
+ var pc=Math.round(tot/190*100);
+ document.getElementById("tpct").textContent=tot===0?"石鬼面的百年物语，从第一话点亮":
+  tot>=190?"六部全通 · 正是黄金精神":pc+"% · 沿着乔斯达的血脉继续";
+}
+function openC(pi,n){
+ var p=DATA[pi],e=p.eps[n-1];cur=pi*1000+n;
+ document.getElementById("card").style.setProperty("--pc",p.color);
+ document.getElementById("cno").textContent="PART "+(pi+1)+" · "+p.cn+" · 第 "+n+" 话";
+ document.getElementById("ctt").textContent=e.t;
+ document.getElementById("cmeta").textContent=(e.d?"首播 "+e.d+" · ":"")+p.year;
+ document.getElementById("chero").innerHTML=p.hero+"<span> 的物语 · </span>"+p.stand;
+ var cd=document.getElementById("cdesc");
+ if(e.s){cd.style.display="block";cd.textContent=e.s}
+ else{cd.style.display="block";cd.textContent=p.intro}
+ document.getElementById("card").classList.add("up");
+ document.getElementById("ovl").classList.add("on");
+}
+function closeC(mark){
+ if(mark&&cur>=0){L[cur]=1;localStorage.setItem(KEY,JSON.stringify(L));
+  var pi=Math.floor(cur/1000),n=cur%1000,p=DATA[pi];
+  toast("✓ P"+(pi+1)+"-"+n+" "+p.eps[n-1].t.slice(0,10)+" 点亮")}
+ document.getElementById("card").classList.remove("up");
+ document.getElementById("ovl").classList.remove("on");cur=-1;render();check();
+}
+document.getElementById("bdone").onclick=function(){closeC(true)};
+document.getElementById("bclose").onclick=function(){closeC(false)};
+document.getElementById("ovl").onclick=function(){closeC(false)};
+function check(){
+ var all=true;DATA.forEach(function(p,pi){p.eps.forEach(function(e){if(!lit(pi,+e.n))all=false})});
+ if(all)setTimeout(function(){document.getElementById("badge").classList.add("on")},400);
+}
+var tmr=null;
+function toast(t){var el=document.getElementById("toast");el.textContent=t;el.classList.add("on");
+ clearTimeout(tmr);tmr=setTimeout(function(){el.classList.remove("on")},1800)}
+render();
+</script>
+</body>
+</html>
